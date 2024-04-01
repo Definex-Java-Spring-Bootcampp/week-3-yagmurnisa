@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.patika.kredinbizdeservice.client.dto.request.GarantiApplicationRequest;
 import com.patika.kredinbizdeservice.client.dto.response.ApplicationResponse;
 
-@FeignClient(value = "garanti-service", url = "localhost:8082")
+@FeignClient(value = "garanti-service", url = "localhost:8083")
 public interface GarantiServiceClient {
 
 	@PostMapping("api/garanti/v1/applications")
