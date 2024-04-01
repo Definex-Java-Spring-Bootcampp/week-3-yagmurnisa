@@ -25,7 +25,7 @@ public class ApplicationController {
     }
 
     @GetMapping
-    public List<Application> getApplications(@RequestBody String email) {// id de olabilir
+    public List<Application> getApplications(@RequestBody String email) {
     	return applicationService.getApplications(email);
     }
 }

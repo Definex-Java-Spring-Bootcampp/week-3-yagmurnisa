@@ -7,6 +7,7 @@ import com.patika.kredinbizdeservice.producer.NotificationProducer;
 import com.patika.kredinbizdeservice.producer.dto.NotificationDTO;
 import com.patika.kredinbizdeservice.producer.enums.NotificationType;
 import com.patika.kredinbizdeservice.repository.UserRepository;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,10 @@ public class UserService {
     private UserRepository userRepository = new UserRepository();
 
     private final NotificationProducer notificationProducer;
-
+    
     public User save(User user) {
         System.out.println("userRepository: " + userRepository.hashCode());
-
+        
         userRepository.save(user);
 
         notificationProducer.sendNotification(prepareNotificationDTO(NotificationType.EMAIL, user.getEmail()));

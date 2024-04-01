@@ -25,12 +25,13 @@ public class ApplicationService {
     private final ApplicationRepository applicationRepository = new ApplicationRepository();
     private final ApplicationConverter applicationConverter;
     private final UserService userService;
-    private final AkbankServiceClient akbankServiceClient;
+    private final AkbankServiceClient akbankServiceClient; 
     private final GarantiServiceClient garantiServiceClient;
 
     public Application createApplication(ApplicationRequest request) {
 
     	String bank = request.getBank();
+    	
         User user = userService.getByEmail(request.getEmail());
         log.info("user bulundu");
 
@@ -39,7 +40,7 @@ public class ApplicationService {
         Application savedApplication = applicationRepository.save(application);
 
         ApplicationResponse applicationResponse = null;
-        
+        //bu kısımlar banka sayısı artarsa daha farklı halledilebilir
         if (bank.toLowerCase().equals("garanti")) {
         	applicationResponse = garantiServiceClient.createApplication(prepareGarantiApplication(user));
         }

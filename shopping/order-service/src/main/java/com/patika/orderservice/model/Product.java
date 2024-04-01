@@ -9,8 +9,8 @@ import lombok.*;
 @Builder
 public class Product {
 	
-	long id;
+	Long id;
 	String name;
-	double price;
+	Long price;
 }
 

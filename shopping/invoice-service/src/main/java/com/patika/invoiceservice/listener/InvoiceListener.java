@@ -17,7 +17,7 @@ public class InvoiceListener {
     @RabbitListener(queues = "${rabbitmq.queue}")
     public void sendOrderInfo(Order order) {
     	invoiceService.createInvoice(order);
-        log.info("kuyruktan okudun: {}", order);
+        log.info("FATURA YARATILDI: {}", order);
         
     }
 }

@@ -15,6 +15,7 @@ public class InvoiceService {
 	
 	public void createInvoice(Order order) {
 		Invoice invoice = Invoice.builder().order(order).build();
+		invoiceRepository.save(invoice);
 	}
 	
 	public List<Invoice> getInvoiceByUser(Long id) {

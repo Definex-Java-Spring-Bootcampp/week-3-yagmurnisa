@@ -22,8 +22,8 @@ public class OrderController {
 		return orderService.createOrder(order);
 	}
 	
-	@GetMapping
-	public List<Order> getOrderByUser(@RequestBody Long id) {
+	@GetMapping("/{id}")
+	public List<Order> getOrderByUser(@PathVariable Long id) {
 		return orderService.getOrderByUser(id);
 	}
 

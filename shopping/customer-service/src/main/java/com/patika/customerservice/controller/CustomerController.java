@@ -24,8 +24,12 @@ public class CustomerController {
 	}
 
 	@GetMapping
-	public List<Customer> getAll() {
+	public List<CustomerDTO> getAll() {
 		return customerService.getAll();
 	}
 	
+	@GetMapping("/{id}")
+	public CustomerDTO getCustomerById(@PathVariable Long id) {
+		return customerService.getCustomerById(id);
+	}
 }
